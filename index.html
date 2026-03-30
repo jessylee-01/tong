@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>墨韵学堂 · 初中语文AI原创课件</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            /* 主色调 - 国风红金 */
+            --color-primary-50: #fef2f2;
+            --color-primary-100: #fee2e2;
+            --color-primary-500: #dc2626;
+            --color-primary-600: #b91c1c;
+            --color-primary-700: #991b1b;
+            --color-primary-900: #7f1d1d;
+            
+            /* 辅助色 - 墨韵金 */
+            --color-accent-100: #fef3c7;
+            --color-accent-400: #fbbf24;
+            --color-accent-500: #f59e0b;
+            --color-accent-600: #d97706;
+            
+            /* 中性色 - 水墨灰 */
+            --color-neutral-50: #fafaf9;
+            --color-neutral-100: #f5f5f4;
+            --color-neutral-200: #e7e5e4;
+            --color-neutral-300: #d6d3d1;
+            --color-neutral-400: #a8a29e;
+            --color-neutral-500: #78716c;
+            --color-neutral-600: #57534e;
+            --color-neutral-700: #44403c;
+            --color-neutral-800: #292524;
+            --color-neutral-900: #1c1917;
+            
+            /* 语义色 */
+            --color-success: #16a34a;
+            --color-warning: #ea580c;
+            --color-error: #dc2626;
+            --color-info: #0369a1;
+            
+            /* 字体 */
+            --font-display: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', serif;
+            --font-body: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', sans-serif;
+            
+            /* 字体比例 */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            
+            /* 行高 */
+            --leading-none: 1;
+            --leading-tight: 1.25;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.75;
+            
+            /* 间距 */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            
+            /* 圆角 */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-full: 9999px;
+            
+            /* 阴影 */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-gold: 0 4px 14px 0 rgb(245 158 11 / 0.25);
+            
+            /* 过渡 */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+        }
+        
+        /* ==================== Reset & Base ==================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: var(--leading-normal);
+            color: var(--color-neutral-700);
+            background-color: var(--color-neutral-50);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        
+        ul, ol {
+            list-style: none;
+        }
+        
+        /* ==================== Layout ==================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 var(--space-6);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--space-8);
+            }
+        }
+        
+        /* ==================== Typography ==================== */
+        .font-display {
+            font-family: var(--font-display);
+        }
+        
+        .text-xs { font-size: var(--text-xs); }
+        .text-sm { font-size: var(--text-sm); }
+        .text-base { font-size: var(--text-base); }
+        .text-lg { font-size: var(--text-lg); }
+        .text-xl { font-size: var(--text-xl); }
+        .text-2xl { font-size: var(--text-2xl); }
+        .text-3xl { font-size: var(--text-3xl); }
+        .text-4xl { font-size: var(--text-4xl); }
+        .text-5xl { font-size: var(--text-5xl); }
+        
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        
+        .leading-none { line-height: var(--leading-none); }
+        .leading-tight { line-height: var(--leading-tight); }
+        .leading-relaxed { line-height: var(--leading-relaxed); }
+        
+        /* ==================== Colors ==================== */
+        .text-primary { color: var(--color-primary-700); }
+        .text-primary-dark { color: var(--color-primary-900); }
+        .text-accent { color: var(--color-accent-600); }
+        .text-neutral { color: var(--color-neutral-600); }
+        .text-neutral-light { color: var(--color-neutral-500); }
+        .text-white { color: white; }
+        
+        .bg-primary { background-color: var(--color-primary-500); }
+        .bg-primary-light { background-color: var(--color-primary-50); }
+        .bg-accent-light { background-color: var(--color-accent-100); }
+        .bg-neutral { background-color: var(--color-neutral-50); }
+        .bg-white { background-color: white; }
+        
+        /* ==================== Spacing ==================== */
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-3 { margin-top: var(--space-3); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mt-8 { margin-top: var(--space-8); }
+        .mt-12 { margin-top: var(--space-12); }
+        .mt-16 { margin-top: var(--space-16); }
+        .mt-20 { margin-top: var(--space-20); }
+        
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-3 { margin-bottom: var(--space-3); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .mb-8 { margin-bottom: var(--space-8); }
+        
+        .py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+        .py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+        .py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+        .py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+        .py-20 { padding-top: var(--space-20); padding-bottom: var(--space-20); }
+        
+        .px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+        .px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+        .px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+        
+        /* ==================== Components ==================== */
+        
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            font-weight: 500;
+            border-radius: var(--radius-lg);
+            padding: var(--space-3) var(--space-6);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .btn:focus-visible {
+            outline: 2px solid var(--color-primary-500);
+            outline-offset: 2px;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primary-500);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-primary-600);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary-700);
+            border: 2px solid var(--color-primary-500);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--color-primary-50);
+        }
+        
+        .btn-accent {
+            background-color: var(--color-accent-500);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--color-accent-600);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+        
+        .btn-lg {
+            padding: var(--space-4) var(--space-8);
+            font-size: var(--text-lg);
+        }
+        
+        /* Card */
+        .card {
+            background-color: white;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-neutral-200);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+        }
+        
+        .card-featured {
+            border: 2px solid var(--color-accent-400);
+            background: linear-gradient(135deg, white 0%, var(--color-accent-100) 100%);
+        }
+        
+        .card-body {
+            padding: var(--space-6);
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 600;
+        }
+        
+        .badge-hot {
+            background-color: var(--color-primary-500);
+            color: white;
+        }
+        
+        .badge-new {
+            background-color: var(--color-accent-500);
+            color: white;
+        }
+        
+        .badge-tag {
+            background-color: var(--color-neutral-100);
+            color: var(--color-neutral-600);
+            border: 1px solid var(--color-neutral-200);
+        }
+        
+        /* Tag */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-xs);
+            background-color: var(--color-primary-50);
+            color: var(--color-primary-700);
+        }
+        
+        /* Section */
+        .section {
+            padding: var(--space-16) 0;
+        }
+        
+        @media (min-width: 768px) {
+            .section {
+                padding: var(--space-20) 0;
+            }
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-primary-900);
+            text-align: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: var(--text-4xl);
+            }
+        }
+        
+        .section-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-neutral-500);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-12);
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: var(--space-6);
+        }
+        
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        
+        @media (min-width: 640px) {
+            .sm-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (min-width: 768px) {
+            .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+            .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        /* Flex */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: var(--space-2); }
+        .gap-4 { gap: var(--space-4); }
+        .gap-6 { gap: var(--space-6); }
+        .gap-8 { gap: var(--space-8); }
+        
+        /* Text align */
+        .text-center { text-align: center; }
+        
+        /* ==================== Header ==================== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-neutral-200);
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-primary-900);
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-lg);
+        }
+        
+        .nav {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: var(--space-8);
+            }
+        }
+        
+        .nav-link {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--color-neutral-600);
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-link:hover {
+            color: var(--color-primary-600);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        /* ==================== Hero ==================== */
+        .hero {
+            position: relative;
+            padding: var(--space-16) 0;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                padding: var(--space-20) 0;
+            }
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-primary-50) 50%, var(--color-accent-100) 100%);
+            opacity: 0.6;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dc2626' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background-color: white;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-md);
+            font-size: var(--text-sm);
+            color: var(--color-primary-600);
+            margin-bottom: var(--space-6);
+        }
+        
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-accent-500);
+            border-radius: var(--radius-full);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-primary-900);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-6);
+        }
+        
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: var(--text-4xl);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: var(--text-5xl);
+            }
+        }
+        
+        .hero-title-accent {
+            color: var(--color-primary-500);
+            position: relative;
+        }
+        
+        .hero-title-accent::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: var(--color-accent-400);
+            opacity: 0.3;
+            border-radius: var(--radius-sm);
+        }
+        
+        .hero-description {
+            font-size: var(--text-lg);
+            color: var(--color-neutral-600);
+            max-width: 600px;
+            margin: 0 auto var(--space-8);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            align-items: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-actions {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-12);
+            margin-top: var(--space-12);
+            padding-top: var(--space-8);
+            border-top: 1px solid var(--color-neutral-200);
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-primary-900);
+        }
+        
+        .hero-stat-label {
+            font-size: var(--text-sm);
+            color: var(--color-neutral-500);
+            margin-top: var(--space-1);
+        }
+        
+        /* ==================== Features ==================== */
+        .features {
+            background-color: white;
+        }
+        
+        .feature-card {
+            padding: var(--space-6);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-4);
+            background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-accent-100) 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+        }
+        
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-2);
+        }
+        
+        .feature-description {
+            font-size: var(--text-sm);
+            color: var(--color-neutral-500);
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* ==================== Products ==================== */
+        .products {
+            background-color: var(--color-neutral-50);
+        }
+        
+        .product-card-image {
+            aspect-ratio: 16 / 10;
+            background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-accent-100) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card-image::before {
+            content: '📚';
+            font-size: 48px;
+            opacity: 0.5;
+        }
+        
+        .product-card-badges {
+            position: absolute;
+            top: var(--space-3);
+            left: var(--space-3);
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .product-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-3);
+        }
+        
+        .product-card-title {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-neutral-800);
+            line-height: var(--leading-tight);
+        }
+        
+        .product-card-grade {
+            font-size: var(--text-xs);
+            color: var(--color-neutral-500);
+            background-color: var(--color-neutral-100);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+        }
+        
+        .product-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .product-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--color-neutral-200);
+        }
+        
+        .product-card-price {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-1);
+        }
+        
+        .product-card-price-current {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--color-primary-600);
+        }
+        
+        .product-card-price-original {
+            font-size: var(--text-sm);
+            color: var(--color-neutral-400);
+            text-decoration: line-through;
+        }
+        
+        .product-card-sales {
+            font-size: var(--text-xs);
+            color: var(--color-neutral-500);
+        }
+        
+        /* ==================== CTA ==================== */
+        .cta {
+            background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-4);
+        }
+        
+        @media (min-width: 768px) {
+            .cta-title {
+                font-size: var(--text-3xl);
+            }
+        }
+        
+        .cta-description {
+            font-size: var(--text-lg);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-8);
+        }
+        
+        .cta-btn {
+            background-color: white;
+            color: var(--color-primary-700);
+            font-weight: 600;
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--color-accent-100);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* ==================== Footer ==================== */
+        .footer {
+            background-color: var(--color-neutral-900);
+            color: var(--color-neutral-400);
+            padding: var(--space-12) 0 var(--space-8);
+        }
+        
+        .footer-grid {
+            display: grid;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-4);
+        }
+        
+        .footer-description {
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            max-width: 300px;
+        }
+        
+        .footer-title {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: white;
+            margin-bottom: var(--space-4);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .footer-link {
+            font-size: var(--text-sm);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: var(--space-8);
+            border-top: 1px solid var(--color-neutral-800);
+            text-align: center;
+            font-size: var(--text-sm);
+        }
+        
+        /* ==================== Utility ==================== */
+        .hidden { display: none; }
+        
+        @media (min-width: 768px) {
+            .md-block { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">墨</div>
+                    <span>墨韵学堂</span>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#products" class="nav-link">课件列表</a>
+                    <a href="#features" class="nav-link">特色优势</a>
+                    <a href="#cta" class="nav-link">联系我们</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn btn-primary">立即购买</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>AI 原创课件 · 持续更新中</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    初中语文<span class="hero-title-accent">AI原创课件</span><br>
+                    让备课更轻松
+                </h1>
+                
+                <p class="hero-description">
+                    融合传统国风美学与现代教学理念，为初中语文教师打造精美、实用的原创课件。每一课都经过精心设计，让课堂更有韵味。
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-primary btn-lg">
+                        <span>浏览课件</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-lg">
+                        了解更多
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">200+</div>
+                        <div class="hero-stat-label">原创课件</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">3</div>
+                        <div class="hero-stat-label">年级全覆盖</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">1000+</div>
+                        <div class="hero-stat-label">教师选择</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <div class="container">
+            <h2 class="section-title">为什么选择墨韵学堂</h2>
+            <p class="section-subtitle">我们深知教师备课的辛苦，因此每一套课件都经过精心打磨，只为让您的课堂更加出彩</p>
+            
+            <div class="grid grid-cols-1 md-grid-cols-3">
+                <div class="card feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">国风美学设计</h3>
+                    <p class="feature-description">融合中国传统元素与现代设计理念，每一页都如诗如画，让学生在美的熏陶中学习</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI 智能辅助</h3>
+                    <p class="feature-description">借助 AI 技术生成优质内容，结合人工精修，确保课件既高效又专业</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">紧扣教学大纲</h3>
+                    <p class="feature-description">严格依据最新课程标准设计，知识点覆盖全面，重难点突出，助力学生高效学习</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3 class="feature-title">可编辑源文件</h3>
+                    <p class="feature-description">提供可编辑的 PPT 源文件，您可以根据实际教学需求自由调整，灵活便捷</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">持续更新迭代</h3>
+                    <p class="feature-description">根据教学反馈持续优化更新，一次购买，终身受益，让您的课件始终保持新鲜</p>
+                </div>
+                
+                <div class="card feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">贴心售后服务</h3>
+                    <p class="feature-description">购买后享受专属客服支持，有任何问题随时沟通，我们用心服务每一位教师</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section products">
+        <div class="container">
+            <h2 class="section-title">精选课件</h2>
+            <p class="section-subtitle">覆盖七、八、九年级全册，每一课都是用心之作</p>
+            
+            <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3">
+                <!-- Product 1 -->
+                <div class="card">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-hot">热门</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">《春》朱自清</h3>
+                            <span class="product-card-grade">七年级上</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">散文</span>
+                            <span class="tag">写景</span>
+                            <span class="tag">朗读指导</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥9.9</span>
+                                <span class="product-card-price-original">¥19.9</span>
+                            </div>
+                            <span class="product-card-sales">已售 328</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="card">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-new">新课</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">《背影》朱自清</h3>
+                            <span class="product-card-grade">八年级上</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">散文</span>
+                            <span class="tag">亲情</span>
+                            <span class="tag">细节描写</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥9.9</span>
+                                <span class="product-card-price-original">¥19.9</span>
+                            </div>
+                            <span class="product-card-sales">已售 156</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="card card-featured">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-hot">热销</span>
+                            <span class="badge badge-new">套装</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">七年级上册全套</h3>
+                            <span class="product-card-grade">套装</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">全册覆盖</span>
+                            <span class="tag">赠送教案</span>
+                            <span class="tag">超值</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥99</span>
+                                <span class="product-card-price-original">¥199</span>
+                            </div>
+                            <span class="product-card-sales">已售 89</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="card">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-tag">古诗词</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">《观沧海》曹操</h3>
+                            <span class="product-card-grade">七年级上</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">古诗</span>
+                            <span class="tag">乐府</span>
+                            <span class="tag">意境赏析</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥5.9</span>
+                                <span class="product-card-price-original">¥12.9</span>
+                            </div>
+                            <span class="product-card-sales">已售 245</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="card">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-tag">文言文</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">《桃花源记》陶渊明</h3>
+                            <span class="product-card-grade">八年级下</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">文言文</span>
+                            <span class="tag">理想社会</span>
+                            <span class="tag">字词详解</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥12.9</span>
+                                <span class="product-card-price-original">¥25.9</span>
+                            </div>
+                            <span class="product-card-sales">已售 178</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="card">
+                    <div class="product-card-image">
+                        <div class="product-card-badges">
+                            <span class="badge badge-hot">推荐</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-title">九年级全册套装</h3>
+                            <span class="product-card-grade">套装</span>
+                        </div>
+                        <div class="product-card-tags">
+                            <span class="tag">中考备考</span>
+                            <span class="tag">重点突破</span>
+                            <span class="tag">真题配套</span>
+                        </div>
+                        <div class="product-card-footer">
+                            <div class="product-card-price">
+                                <span class="product-card-price-current">¥129</span>
+                                <span class="product-card-price-original">¥259</span>
+                            </div>
+                            <span class="product-card-sales">已售 67</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn btn-secondary btn-lg">
+                    查看更多课件
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">开启您的国风教学之旅</h2>
+                <p class="cta-description">现在购买任意课件，即可享受首单 5 折优惠。让墨韵学堂陪伴您的每一堂课。</p>
+                <a href="#products" class="btn cta-btn btn-lg">
+                    立即选购
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">墨韵学堂</div>
+                    <p class="footer-description">专注初中语文 AI 原创课件，融合国风美学与现代教学理念，为教师提供优质教学资源。</p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">课件分类</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">七年级课件</a>
+                        <a href="#" class="footer-link">八年级课件</a>
+                        <a href="#" class="footer-link">九年级课件</a>
+                        <a href="#" class="footer-link">全套套装</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">帮助支持</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">购买指南</a>
+                        <a href="#" class="footer-link">常见问题</a>
+                        <a href="#" class="footer-link">售后服务</a>
+                        <a href="#" class="footer-link">联系客服</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">关注我们</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">小红书</a>
+                        <a href="#" class="footer-link">抖音</a>
+                        <a href="#" class="footer-link">微信公众号</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 墨韵学堂. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
